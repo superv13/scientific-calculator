@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven'
-        jdk 'JDK25'
-    }
-
     environment {
         IMAGE_NAME = "scientific-calculator"
         DOCKERHUB_USER = "svrma13"
