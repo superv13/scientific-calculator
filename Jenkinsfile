@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven'
+    }
+
     environment {
         IMAGE_NAME = "scientific-calculator"
         DOCKERHUB_USER = "svrma13"
