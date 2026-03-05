@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools{
-        maven 'Maven'
-    }
-
     environment {
         IMAGE_NAME = "scientific-calculator"
         DOCKERHUB_USER = "svrma13"
@@ -30,12 +26,6 @@ pipeline {
             }
         }
 
-        stage('Archive Artifact') {
-            steps {
-                archiveArtifacts artifacts: 'target/*.jar'
-            }
-        }
-        
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t $DOCKERHUB_USER/$IMAGE_NAME:latest .'
@@ -45,7 +35,7 @@ pipeline {
         stage('Push to DockerHub') {
             steps {
                 withCredentials([usernamePassword(
-                    credentialsId: 'dockerhub-creds',
+                    credentialsId: 'dockerhub-credentials',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
                 )]) {
