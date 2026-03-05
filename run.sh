@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Deploying using Ansible..."
-ansible-playbook -i inventory.ini deploy.yml
+echo "Deploying application using Ansible..."
+ansible-playbook ansible/deploy.yml -i ansible/inventory.ini
 
-echo "Attaching to running container..."
+echo "Opening calculator..."
 docker exec -it scientific-calculator java -jar app.jar
