@@ -42,7 +42,7 @@ public class App
                         double base = sc.nextDouble();
                         System.out.println("Enter the power");
                         double power = sc.nextDouble();
-                        System.out.println("Power of " + base + " is " + calc.power(base, power));
+                        System.out.println("Power of " + base + " to the power " + power + " is " + calc.power(base, power));
                         break;
                     case 5:
                         System.exit(0);
