@@ -57,4 +57,27 @@ pipeline {
             }
         }
     }
+
+    post {
+
+        success {
+            emailext(
+                subject: "Jenkins Build SUCCESS",
+                body: "Scientific Calculator pipeline build succeeded.",
+                to: "shrutivrma1301@gmail.com"
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "Jenkins Build FAILED",
+                body: "Scientific Calculator pipeline build failed.",
+                to: "shrutivrma1301@gmail.com"
+            )
+        }
+
+        always {
+            echo "Pipeline execution completed."
+        }
+    }
 }
